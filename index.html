@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr" data-l="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamza Benchehida, développeur web et systèmes d'information</title>
+<meta name="description" content="Étudiant en systèmes d'information web à l'ESI-SBA, à la recherche d'un PFE de 4 à 6 mois à partir de janvier 2027.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F5F2; --ink:#14231E; --muted:#4D6159; --line:#C3D2C9;
+  --accent:#17695A; --on-accent:#F1F5F2; --signal:#E8A92A;
+  --ui:#D8E6F4; --svc:#D3E9EC; --data:#D2E9E0; --plat:#D6E8D2; --net:#E0E8C6;
+  --head:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1815; --ink:#E3EEE8; --muted:#9DB3A9; --line:#27403A;
+    --accent:#5CC4AC; --on-accent:#0E1815; --signal:#F0B93B;
+    --ui:#1B2E3F; --svc:#1A3540; --data:#19372F; --plat:#1D3727; --net:#2A3A1C;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.65 var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.2em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:1.05;letter-spacing:-.02em}
+
+/* language switch: only the active language is shown */
+html[data-l="fr"] .en{display:none}
+html[data-l="en"] .fr{display:none}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.mark{font:800 1.05rem var(--head);letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+.lang{font:500 .95rem var(--head);background:none;border:1px solid var(--line);color:var(--ink);padding:.35rem .8rem;border-radius:999px;cursor:pointer}
+.lang:hover{border-color:var(--accent)}
+
+/* hero */
+.hero{padding:clamp(2.5rem,8vw,6rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.hero h1{font-weight:800;font-size:clamp(3rem,10.5vw,7.25rem);letter-spacing:-.04em;line-height:.95}
+.hero .pitch{max-width:34rem;margin:1.75rem 0 0;font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.4}
+.avail{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.75rem;font:500 1rem var(--head)}
+.avail i{width:.7rem;height:.7rem;border-radius:50%;background:var(--signal);flex:none}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{font:500 1rem var(--head);text-decoration:none;padding:.75rem 1.2rem;border-radius:.5rem;border:1.5px solid var(--accent);color:var(--accent)}
+.btn.main{background:var(--accent);color:var(--on-accent)}
+.btn:hover{filter:brightness(1.08)}
+
+section{padding:clamp(2.25rem,5vw,3.5rem) 0}
+h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.5rem)}
+.lead{color:var(--muted);max-width:38rem;margin:.75rem 0 0}
+
+/* the layer stack */
+.layers{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:.4rem;position:relative}
+.layers li{display:grid;grid-template-columns:minmax(7.5rem,11rem) 1fr;gap:1rem;align-items:baseline;padding:1rem 1.1rem 1rem 1.25rem;border-radius:.4rem;border-left:5px solid transparent;transition:opacity .15s,border-color .15s}
+.layers h3{font-size:1.15rem;letter-spacing:-.01em}
+.layers p{margin:0;font-size:1.05rem}
+.layers li[data-k="ui"]{background:var(--ui)}
+.layers li[data-k="svc"]{background:var(--svc)}
+.layers li[data-k="data"]{background:var(--data)}
+.layers li[data-k="plat"]{background:var(--plat)}
+.layers li[data-k="net"]{background:var(--net)}
+.layers li.on{border-left-color:var(--accent)}
+.layers.hl li:not(.on){opacity:.4}
+@media (max-width:40rem){.layers li{grid-template-columns:1fr;gap:.15rem}}
+
+/* projects as plain rows */
+.projects{list-style:none;margin:1.5rem 0 0;padding:0}
+.projects li{padding:1.4rem 0;border-top:1px solid var(--line)}
+.projects li:last-child{border-bottom:1px solid var(--line)}
+.projects h3{font-size:1.4rem}
+.projects h3 a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.projects p{margin:.35rem 0 0;max-width:42rem}
+.stack{color:var(--muted);font-size:1rem;font-style:italic}
+.who{font:500 .95rem var(--head);color:var(--accent)}
+
+/* background */
+.bg{display:grid;grid-template-columns:minmax(8rem,12rem) 1fr;gap:.5rem 2rem;margin-top:1.5rem}
+.bg dt{font:800 1.05rem var(--head);padding-top:.1rem}
+.bg dd{margin:0 0 1.5rem}
+.bg small{display:block;color:var(--muted);font-size:1rem;margin-top:.2rem}
+@media (max-width:40rem){.bg{grid-template-columns:1fr}.bg dd{margin-bottom:1.25rem}}
+
+footer{padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.layers li{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="mark" href="#top">Hamza Benchehida</a>
+  <button class="lang" id="lang" type="button" aria-label="Changer la langue / Switch language">
+    <span class="fr">English</span><span class="en">Français</span>
+  </button>
+</header>
+
+<main id="top">
+<div class="hero">
+  <h1>Hamza<br>Benchehida</h1>
+  <p class="pitch">
+    <span class="fr">Je conçois des systèmes d'information, de l'interface web jusqu'au capteur.</span>
+    <span class="en">I build information systems, from the web interface down to the sensor.</span>
+  </p>
+  <p class="avail"><i aria-hidden="true"></i>
+    <span class="fr">Étudiant en SIW à l'ESI-SBA. Disponible pour un PFE de 4 à 6 mois dès janvier 2027.</span>
+    <span class="en">SIW student at ESI-SBA. Available for a 4 to 6 month final-year internship from January 2027.</span>
+  </p>
+  <div class="actions">
+    <a class="btn main" href="cv/CV_Hamza_Benchehida.pdf"><span class="fr">Télécharger le CV</span><span class="en">Download my CV</span></a>
+    <a class="btn" href="https://github.com/hamza-benchehida">GitHub</a>
+    <a class="btn" href="mailto:hamzabenchehida70@gmail.com"><span class="fr">M'écrire</span><span class="en">Email me</span></a>
+  </div>
+</div>
+
+<section id="skills">
+  <h2><span class="fr">Compétences</span><span class="en">Skills</span></h2>
+  <p class="lead">
+    <span class="fr">Cinq couches, de l'écran de l'utilisateur au terrain. Survolez un projet plus bas pour voir celles qu'il traverse.</span>
+    <span class="en">Five layers, from the user's screen to the field. Hover a project below to see which ones it crosses.</span>
+  </p>
+  <ol class="layers" id="layers">
+    <li data-k="ui"><h3><span class="fr">Interface</span><span class="en">Interface</span></h3><p>Angular, React, Next.js, TypeScript, Tailwind, Bootstrap, Flutter</p></li>
+    <li data-k="svc"><h3>Services</h3><p>Java, Spring Boot, Spring Cloud, Node.js, GraphQL, CQRS avec Axon, Kafka</p></li>
+    <li data-k="data"><h3><span class="fr">Données</span><span class="en">Data</span></h3><p>PostgreSQL, MySQL, MongoDB, Oracle, Hadoop, Spark</p></li>
+    <li data-k="plat"><h3><span class="fr">Plateforme</span><span class="en">Platform</span></h3><p>Docker, Kubernetes, Git, Linux, Nginx</p></li>
+    <li data-k="net"><h3><span class="fr">Réseau et capteurs</span><span class="en">Network and devices</span></h3><p>TCP/IP, VLAN, routage, GNS3, ESP32, MQTT, Node-RED</p></li>
+  </ol>
+</section>
+
+<section id="projects">
+  <h2><span class="fr">Projets</span><span class="en">Projects</span></h2>
+  <ul class="projects" id="projects-list">
+    <li data-layers="ui svc data plat net">
+      <h3><a href="https://github.com/hamza-benchehida/agrosmart">AgroSmart</a></h3>
+      <p><span class="fr">Plateforme d'agriculture de précision : capteurs, irrigation, alertes, carte et chatbot. Huit services déployés sur Kubernetes.</span>
+         <span class="en">Precision-agriculture platform: sensors, irrigation, alerts, map and chatbot. Eight services deployed on Kubernetes.</span></p>
+      <p class="stack">Go, NestJS, Spring Boot, Python, Next.js, Kafka, MQTT</p>
+      <p class="who"><span class="fr">Projet de deuxième année, réalisé avec Adel Bouras</span><span class="en">Second-year project, built with Adel Bouras</span></p>
+    </li>
+    <li data-layers="svc data plat">
+      <h3><a href="https://github.com/hamza-benchehida/medilink-microservices">MediLink</a></h3>
+      <p><span class="fr">Trois microservices de santé (patients, ordonnances, remboursements) derrière une API Gateway, avec circuit breaker.</span>
+         <span class="en">Three healthcare microservices (patients, prescriptions, reimbursements) behind an API gateway, with a circuit breaker.</span></p>
+      <p class="stack">Spring Cloud, Eureka, Resilience4j, Docker</p>
+    </li>
+    <li data-layers="svc data">
+      <h3><a href="https://github.com/hamza-benchehida/library-cqrs-axon">Library CQRS</a></h3>
+      <p><span class="fr">Gestion de bibliothèque en CQRS et Event Sourcing, avec des services de commande et de requête séparés.</span>
+         <span class="en">Library management with CQRS and Event Sourcing, using separate command and query services.</span></p>
+      <p class="stack">Axon Framework, Axon Server, MySQL, MongoDB</p>
+    </li>
+    <li data-layers="svc net">
+      <h3><span class="fr">Surveillance de plantes</span><span class="en">Plant monitoring</span></h3>
+      <p><span class="fr">Mesure de la température, de l'humidité de l'air et de celle du sol, avec commande d'un relais.</span>
+         <span class="en">Measures temperature, air humidity and soil moisture, and drives a relay.</span></p>
+      <p class="stack">Wemos D1 Mini, DHT11, MQTT, Node-RED</p>
+    </li>
+    <li data-layers="ui data">
+      <h3><span class="fr">Gestion du magasin de l'ESI</span><span class="en">ESI store management</span></h3>
+      <p><span class="fr">Application web et mobile de gestion de stock.</span><span class="en">Web and mobile stock management app.</span></p>
+    </li>
+    <li data-layers="data plat">
+      <h3><span class="fr">Clusters Big Data</span><span class="en">Big Data clusters</span></h3>
+      <p><span class="fr">WordCount MapReduce sur Hadoop et job PySpark, chacun dans un cluster Docker de trois conteneurs.</span>
+         <span class="en">A MapReduce WordCount on Hadoop and a PySpark job, each on a three-container Docker cluster.</span></p>
+    </li>
+  </ul>
+</section>
+
+<section id="background">
+  <h2><span class="fr">Parcours</span><span class="en">Background</span></h2>
+  <dl class="bg">
+    <dt><span class="fr">Stage</span><span class="en">Internship</span></dt>
+    <dd><strong>Algérie Télécom</strong>
+      <small><span class="fr">Septembre 2025, trois semaines</span><span class="en">September 2025, three weeks</span></small>
+      <span class="fr">Fleet Manager, une application web de gestion de flotte et de réparations avec rôles administrateur et chef de centre, et export Excel. Réalisée en binôme.</span>
+      <span class="en">Fleet Manager, a web app for vehicle fleet and repair management with administrator and center-head roles, and Excel export. Built as a pair.</span>
+      <small>Node.js, Express, React, TypeScript, Tailwind, MySQL, Figma, Render, Netlify, Clever Cloud</small></dd>
+    <dt><span class="fr">Formation</span><span class="en">Education</span></dt>
+    <dd><strong>ESI-SBA</strong>
+      <small><span class="fr">École Supérieure en Informatique de Sidi Bel Abbès</span><span class="en">École Supérieure en Informatique de Sidi Bel Abbès</span></small>
+      <span class="fr">Cycle supérieur, spécialité Systèmes d'Information Web. Diplôme prévu en 2027.</span>
+      <span class="en">Engineering cycle, Web Information Systems. Degree expected in 2027.</span></dd>
+    <dt><span class="fr">Langues</span><span class="en">Languages</span></dt>
+    <dd><span class="fr">Arabe langue maternelle, français et anglais courants.</span><span class="en">Arabic native, French and English fluent.</span></dd>
+  </dl>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="lead">
+    <span class="fr">Je cherche un PFE de 4 à 6 mois à partir de janvier 2027, en développement web, systèmes d'information, réseaux et IoT.</span>
+    <span class="en">I'm looking for a 4 to 6 month final-year internship from January 2027 in web development, information systems, networks and IoT.</span>
+  </p>
+  <div class="actions">
+    <a class="btn main" href="mailto:hamzabenchehida70@gmail.com">hamzabenchehida70@gmail.com</a>
+    <a class="btn" href="cv/CV_Hamza_Benchehida.pdf"><span class="fr">CV en PDF</span><span class="en">CV as PDF</span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="fr">Hamza Benchehida, Algérie.</span>
+  <span class="en">Hamza Benchehida, Algeria.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-l',l); root.lang=l;
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
+  if(saved==='en'||saved==='fr') setLang(saved);
+  document.getElementById('lang').addEventListener('click',function(){
+    setLang(root.getAttribute('data-l')==='fr'?'en':'fr');
+  });
+
+  // hovering or focusing a project lights up the layers it crosses
+  var layers=document.getElementById('layers');
+  var items=layers.querySelectorAll('li');
+  function show(keys){
+    layers.classList.add('hl');
+    items.forEach(function(li){li.classList.toggle('on',keys.indexOf(li.dataset.k)>-1)});
+  }
+  function clear(){
+    layers.classList.remove('hl');
+    items.forEach(function(li){li.classList.remove('on')});
+  }
+  document.querySelectorAll('#projects-list li').forEach(function(p){
+    var keys=p.dataset.layers.split(' ');
+    p.addEventListener('mouseenter',function(){show(keys)});
+    p.addEventListener('mouseleave',clear);
+    p.addEventListener('focusin',function(){show(keys)});
+    p.addEventListener('focusout',clear);
+  });
+})();
+</script>
+</body>
+</html>
